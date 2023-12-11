@@ -8,7 +8,7 @@ import InstructionsModal from '../Components/InstructionsModal';
 import SecretModal from '../Components/SecretModal';
 
 function CodemakerUI() {
-    const {gameSession, setGameSession} = useGame();
+    const {currentPlayer, gameSession, setGameSession} = useGame();
     const [errorMsg, setErrorMsg] = useState(null);
     const [showGameOverModal, setShowGameOverModal] = useState(gameSession?.gameOver);
     const navigate = useNavigate();
@@ -19,7 +19,7 @@ function CodemakerUI() {
     async function getSession(){
         try {
             const response = await axios.get(
-                "/game/session?sessionID="+gameSession?.sessionID
+                "/game/session?sessionID="+gameSession?.sessionID+"&username="+currentPlayer.username
             )
             
             setGameSession(response?.data);
@@ -35,7 +35,7 @@ function CodemakerUI() {
         interval.current = setInterval(() => {
             console.log("retrieving data...");
             getSession();
-        }, 1000*20)
+        }, 1000*15)
 
         return () => clearInterval(interval.current);
 

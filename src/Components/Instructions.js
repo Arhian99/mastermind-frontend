@@ -37,7 +37,7 @@ function Instructions({setActivePage}) {
               <span className='fw-bold'>Singleplayer Mode: </span>You are the codebreaker and the computer is the codemaker. You will have to guess the computer generated code. The computer code follows the game settings and difficulty level. 
             </li>
             <li>
-              <span className='fw-bold'>Multiplayer Mode: </span>The player that starts the game session can pick whether they would like to play as the codemaker or the codebreaker, in addition to the other game settings. The player that joins the session gets assigned the other role.
+              <span className='fw-bold'>Multiplayer Mode: </span>The player that starts the game session can pick whether they would like to play as the codemaker or the codebreaker, in addition to the other game settings. The player that joins the session gets assigned the other role. The secret code set by the codemaker gets validated against the game settings selected at the start of the game.
             </li>
             <li>
               <span className='fw-bold'>Repeated Digits: </span>When turned on, it allows the secret code to have repeated digits (does not mean it will), when turned off all the digits in the secret code will be unique.

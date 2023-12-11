@@ -13,6 +13,7 @@ function GameOverModal(props) {
 
             <Modal.Body>
                 <h4>{gameSession?.winner} is the winner!</h4>
+                <h5>Secret was: {gameSession?.secret}</h5>
                 <p>Would you like to play again?</p>
             </Modal.Body>
 

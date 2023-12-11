@@ -21,7 +21,7 @@ function CodebreakerUI() {
     async function getSession(){
         try {
             const response = await axios.get(
-                "/game/session?sessionID="+gameSession?.sessionID
+                "/game/session?sessionID="+gameSession?.sessionID+"&username="+currentPlayer.username
             )
             
             setGameSession(response?.data);
@@ -46,6 +46,8 @@ function CodebreakerUI() {
             guess: Yup.string().required("Cannot submit an empty guess.")
         }),
         onSubmit: async (values, {resetForm}) => {
+            setErrorMsg(null);
+            
             let backendDTO = BackendDTO.build(
                 {
                     "sessionID": gameSession?.sessionID,

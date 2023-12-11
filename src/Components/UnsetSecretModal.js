@@ -7,10 +7,12 @@ function UnsetSecretModal(props) {
     const interval = useRef();
 
     useEffect(() => {
-        interval.current = setInterval(() => {
-            console.log("retrieving data...");
-            props.getSession()
-        }, 1000*20)
+        if(gameSession?.secret===null){
+            interval.current = setInterval(() => {
+                console.log("retrieving data...");
+                props.getSession()
+            }, 1000*15)
+        }
 
         return () => clearInterval(interval.current);
     }, [gameSession])
